@@ -17,3 +17,9 @@ post '/input' do
         end
     end.to_s
 end
+
+post '/forward' do
+    Twilio::TwiML::VoiceResponse.new.dial do |dial|
+        dial.number(ENV['number'])
+    end.to_s
+end
